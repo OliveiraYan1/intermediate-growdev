@@ -11,5 +11,9 @@ export class Like extends Base {
         this._fromUser = fromUser;
         this._toTweet = toTweet;
     }
+
+    public get getUser(): User {
+        return this._fromUser;
+    }
 }
 

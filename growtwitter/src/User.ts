@@ -20,10 +20,12 @@ export class User extends Base {
     }
 
     public sendTweet(tweet: Tweet): void{
-        dbTweets.push(tweet);
+        if (tweet.getType === "normal"){
+            dbTweets.push(tweet);
+        } else {
+            console.log("Este tweet não possui o tipo correto")
+        }
     };
-
-    //user1.follow(user2)
 
     public follow(user: User): void {
         if (user === this){
@@ -32,8 +34,21 @@ export class User extends Base {
             user._followers.push(this);
         }
     };
-    public showFeed(): void {}
-    public showTweets(): void {}
+
+    public showFeed(): void {
+        this.showTweets();
+        for (let i = 0; i < this._followers.length; i++){
+            console.log (this._followers[i].showTweets())
+        }
+
+    }
+
+    public showTweets(): void {
+        const usersTweet = dbTweets.filter ((tweets) => (tweets.getUser) === this);
+        for (let i = 0; i < dbTweets.length; i++) {
+           console.log (dbTweets[i].show());
+        }
+    }
 
     public get getUsername(): string {
         return this._username;
