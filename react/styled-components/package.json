@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "react-router-dom": "^6.26.1",
+    "styled-components": "^6.1.12"
+  },
+  "devDependencies": {
+    "eslint": "^9.9.1",
+    "prettier": "^3.3.3"
+  }
+}
